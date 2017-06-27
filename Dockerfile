@@ -14,9 +14,15 @@
 
 FROM ubuntu:xenial
 
+ENV MYSQL_USER=mysql \
+    MYSQL_DATA_DIR=/var/lib/mysql \
+    MYSQL_RUN_DIR=/run/mysqld \
+    MYSQL_LOG_DIR=/var/log/mysql
+
+
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
-    apt-get install -y pound varnish php5 rsync htop emacs23-nox apache2 php5-mysql dtrx mysql-server exim4 && \
+    apt-get install -y pound varnish  rsync htop apache2 dtrx mysql-server exim4 && \
     apt-get install -y sphp5-curl git && \
     apt-get install -y postgresql postgresql-contrib && \
     apt-get update
